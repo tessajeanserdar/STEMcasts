@@ -22,14 +22,14 @@
     <a class="navbar-brand" ui-sref="#">STEMcasts</a>
     <ul class="nav navbar-nav navbar-right"></ul>
     <ul class="nav navbar-nav navbar-right">
-    <li ng-class="{ active: isActive('/searchelastic')}">
-      <a href="#/searchelastic"> Explore </a>
+    <li ng-class="{ active: isActive('/explore')}">
+      <a href="#/explore"> Explore </a>
     </li>
     <li ng-class="{ active: isActive('/browse')}">
       <a href="#/browse"> Browse </a>
     </li>
-    <li>
-      <a href="#/"> Channels </a>
+    <li ng-class="{ active: isActive('/channel')}">
+      <a href="#/channel"> Channels </a>
     </li>
     <li>
       <a href="#/"> Search </a>
@@ -54,7 +54,8 @@
   <script src="app/resources/resource.js"></script>
   <script src="app/login/login.js"></script>
   <script src="app/user/user.js"></script>
-  <script src="app/elastic/elastic.js"></script>
+  <script src="app/explore/explore.js"></script>
+  <script src="app/channel/channel.js"></script>
   <script src="app/browse/browse.js"></script>
   <script src="services.js"></script>
   <script src="app/app.js"></script>

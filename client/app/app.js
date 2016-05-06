@@ -4,6 +4,7 @@ angular.module('fickle', [
   'fickle.user',
   'fickle.resource',
   'fickle.elasticSearch',
+  'fickle.channel',
   'fickle.browse',
   'ui.router'
 ])
@@ -21,6 +22,11 @@ angular.module('fickle', [
      templateUrl: "/app/login/login.html",
      controller: 'AuthController'
    })
+   .state('channel', {
+     url: "/channel",
+     templateUrl: "/app/channel/channel.html",
+     controller: 'channelController'
+   })
    .state('resource', {
     url: '/resource',
     templateUrl: '/app/resources/resource.html',
@@ -31,9 +37,9 @@ angular.module('fickle', [
     templateUrl: "/app/user/user.html",
     controller: 'userController'
   })
-  .state('searchelastic', {
-    url: "/searchelastic",
-    templateUrl: "/app/elastic/elastic.html",
+  .state('explore', {
+    url: "/explore",
+    templateUrl: "/app/explore/explore.html",
     controller: 'elasticController'
   })
   .state('browse', {
