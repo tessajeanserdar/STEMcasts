@@ -5,7 +5,6 @@ angular.module('fickle.elasticSearch', [])
     if (q.length > 1) {
       Search.searchPodcasts(q).then(function (data) {
         $scope.results = data.docsuggest[0].options;
-        // console.log(data);
       });
     } else {
       $scope.results = [];

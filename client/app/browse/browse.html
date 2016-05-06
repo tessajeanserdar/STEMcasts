@@ -1,3 +1,8 @@
-<div ng-controller="browseController" class="md-padding checkboxdemoSyncing" ng-cloak="" style="min-height:270px" ng-app="fickle.browse">
-  {{words}}
+<div class="images" ng-controller="browseController" class="md-padding checkboxdemoSyncing" ng-cloak="" style="min-height:270px" ng-app="fickle.browse">
+  <div class="singleimage img-thumbnail" ng-repeat="podcast in browseResults">
+    <img height = "110" width ="110" src="{{podcast[0]}}">
+    <p>{{podcast[1]}}</p>
+    <p>{{podcast[2]}}</p>
+  </div>
 </div>
+

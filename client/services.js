@@ -166,6 +166,7 @@ angular.module('fickle.services', [])
     markAsSeen : markAsSeen
   };
 })
+
 .factory('Search', function($http) {
   var searchPodcasts = function (input) {
     return $http({
@@ -179,4 +180,20 @@ angular.module('fickle.services', [])
   return {
     searchPodcasts : searchPodcasts
   }
+})
+.factory('Browse', function($http) {
+  var getPopularPodcasts = function () {
+    return $http({
+      method: 'GET',
+      url: '/browse'
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };    
+  return {
+    getPopularPodcasts : getPopularPodcasts
+  }
 });
+
+

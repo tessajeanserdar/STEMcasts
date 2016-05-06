@@ -3,11 +3,10 @@
     <div flex="100" flex-gt-sm="50" layout="column">
       <div layout="row" layout-wrap="" flex="">
         <img src="{{results[1]}}">
-
         <br>
         {{results[2]}}
         <br>
-        <audio ng-click="markAsSeen(results[1].title)" src="{{results[3] | trustUrl}}" audioplayer controls></audio>
+        <audio ng-click="http://feedproxy.google.com/~r/ibphysicshelp/~5/d4IWOHz14Co/IBPH_Ep9_MQ.mov" src="{{results[3] | trustUrl}}" audioplayer controls></audio>
         Url: {{results[1].link}}
         <br>
         <h5> 
@@ -22,7 +21,6 @@
             <button ng-click="dislikeResource(results[2]); select(results[2]); next()" ng-disabled="abled" ng-model="abled" class="btn btn-default btn-sm">
             <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
           </button>
-  
            <button class="btn btn-default btn-sm" ng-click="next()">Next</button>
           </div>
         </div>

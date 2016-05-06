@@ -1,7 +1,6 @@
 angular.module('fickle', [
   'fickle.auth',
   'fickle.services',
-  'fickle.search',
   'fickle.user',
   'fickle.resource',
   'fickle.elasticSearch',
@@ -12,11 +11,11 @@ angular.module('fickle', [
 
  $urlRouterProvider.otherwise("/search");
  $stateProvider
-   .state('search', {
-     url: "/search",
-     templateUrl: "/app/Search/search.html",
-     controller: 'searchController'
-   })
+   // .state('search', {
+   //   url: "/search",
+   //   templateUrl: "/app/Search/search.html",
+   //   controller: 'searchController'
+   // })
    .state('login', {
      url: "/login",
      templateUrl: "/app/login/login.html",

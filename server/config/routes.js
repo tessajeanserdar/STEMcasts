@@ -15,9 +15,9 @@ module.exports = function(app, express){
     app.post('/create', function (req, res, next) {  
       elastic.addDocument(req.body).then(function (result) { res.json(result) });
     });
-    app.post("/insert", resourceController.insertResource);
-    app.post("/insertEp", resourceController.insertEpisode);
-    app.post("/editEp", resourceController.editEpisode);
+    // app.post("/insert", resourceController.insertResource);
+    // app.post("/insertEp", resourceController.insertEpisode);
+    // app.post("/editEp", resourceController.editEpisode);
     app.post('/getResource', resourceController.getResource);
     app.post('/likeResource', userResourceController.likeResource);
     app.post('/dislikeResource', userResourceController.dislikeResource);
@@ -31,4 +31,6 @@ module.exports = function(app, express){
     app.post("/signin", loginController.signin);
     app.post("/signup", loginController.signup);
     app.post("/logout", loginController.logout);
+    // app.post('/browse', resourceController.getPopularPodcasts);
+    app.get('/browse', resourceController.browse);
 };
