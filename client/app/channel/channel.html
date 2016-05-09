@@ -1,3 +1,5 @@
 <div>
- Channel route is live
+  <div class="tag-list"  ng-repeat="tag in podcastTags">
+     <a href='#/player' ng-click='getPodcastsForTag(tag)'>{{tag.name}}</a>
+  </div>
 </div>

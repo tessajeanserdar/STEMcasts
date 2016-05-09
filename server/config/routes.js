@@ -18,19 +18,21 @@ module.exports = function(app, express){
     // app.post("/insert", resourceController.insertResource);
     // app.post("/insertEp", resourceController.insertEpisode);
     // app.post("/editEp", resourceController.editEpisode);
-    app.post('/getResource', resourceController.getResource);
+    app.post('/explore', resourceController.getExploreQueue);
+    app.post('/channel', resourceController.getChannelQueue);
     app.post('/likeResource', userResourceController.likeResource);
     app.post('/dislikeResource', userResourceController.dislikeResource);
     app.post('/resourceHistory', userResourceController.markAsSeen);
     app.post('/removeRelationship', userResourceController.removeRelationship);
     app.get('/tags', resourceController.getTags);
+    app.get('/tags/:tag', resourceController.getTags);
     app.get('/user/:user', userController.getUser);
     app.get('/userlike/:user', userController.getLikes);
     app.get('/userDislike/:user', userController.getDislikes);
     app.post('/getRec', resourceController.getRec);
-    app.post("/signin", loginController.signin);
-    app.post("/signup", loginController.signup);
-    app.post("/logout", loginController.logout);
-    // app.post('/browse', resourceController.getPopularPodcasts);
+    app.post('/signin', loginController.signin);
+    app.post('/signup', loginController.signup);
+    app.post('/logout', loginController.logout);
     app.get('/browse', resourceController.browse);
-};
+
+}

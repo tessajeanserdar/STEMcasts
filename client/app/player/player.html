@@ -1,0 +1,36 @@
+<!-- <div>{{results}}</div>
+
+<div ng-cloak="" style="min-height:270px">
+  <div layout="row" layout-wrap="">
+    <div flex="100" flex-gt-sm="50" layout="column">
+      <div layout="row" layout-wrap="" flex="">
+        <img src="{{results[1]}}">
+        <br>
+        {{results[2]}}
+        <br>
+        <audio ng-click="http://feedproxy.google.com/~r/ibphysicshelp/~5/d4IWOHz14Co/IBPH_Ep9_MQ.mov" src="{{results[3] | trustUrl}}" audioplayer controls></audio>
+        Url: {{results[1].link}}
+        <br>
+        <h5> 
+          On 
+        </h5>
+        <div>
+          {{results[0]}}
+          <div>
+          <button ng-click="likeResource(results[2]); select(results[2])"  class="btn btn-default btn-sm" >
+            <span class="glyphicon glyphicon-thumbs-up"></span> Like
+          </button>
+            <button ng-click="dislikeResource(results[2]); select(results[2]); next()" ng-disabled="abled" ng-model="abled" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+          </button>
+           <button class="btn btn-default btn-sm" ng-click="next()">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div ng-repeat="podcast in results"> 
+  <p class="podcast">{{podcast}}</p>
+</div>
+

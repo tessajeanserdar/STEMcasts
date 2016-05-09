@@ -1,5 +1,4 @@
 angular.module('fickle.services', [])
-
 .factory('Auth', function ($http, $location, $window) {
   var signin = function (user) {
     return $http({
@@ -41,28 +40,44 @@ angular.module('fickle.services', [])
     });
   };
     
-  var setTags = function(resource) {
+  var setTags = function(resource,type) {
     rec = resource;
+    queueType = type;
+    console.log(rec,queueType)
   };
 
   var getPodcasts = function (user) {
     var userPref ={
       username : user,
-      resource : rec
-    } 
+      resource : rec,
+      queueType : queueType
+      } 
     if(userPref.resource.length === 0){
       userPref.resource = JSON.parse(window.localStorage.getItem('selected'));
     }
-    console.log("rec in services", userPref.resource)
-    return $http({
-      method: 'POST',
-      url: '/getResource',
-      data: userPref
-    })
-    .then(function (resp) {
-      console.log("in controller",resp.data);
-      return resp.data;
-    });    
+
+    if(userPref.queueType === "explore"){
+      return $http({
+        method: 'POST',
+        url: '/explore',
+        data: userPref
+      })
+      .then(function (resp) {
+        console.log(resp)
+        return resp.data;
+      }); 
+    }
+    
+    if(userPref.queueType === "channel"){
+      return $http({
+        method: 'POST',
+        url: '/channel',
+        data: userPref
+      })
+      .then(function (resp) {
+        return resp.data;
+      });    
+    }
   };
 
   var GetRec = function (callback) {
@@ -80,12 +95,24 @@ angular.module('fickle.services', [])
     });
   };
 
+  var getPodcastsForChannelQueue = function (tag) {
+    return $http({
+      method: 'POST',
+      url: '/tags',
+      data: tag
+    })
+    .then(function (resp) {
+      return resp.status;
+    });
+  };
+
   return {
     getTags: getTags,
     getPodcasts: getPodcasts,
     GetRec: GetRec,
     setTags : setTags,
-    getRec: getRec
+    getRec: getRec,
+    getPodcastsForChannelQueue : getPodcastsForChannelQueue
   };
 })
 
