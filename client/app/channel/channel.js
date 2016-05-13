@@ -4,6 +4,7 @@ angular.module('fickle.channel',[])
   function init() {
     Podcasts.getTags()
     .then(function (data){
+      console.log("we have the channels ",data)
       $scope.podcastTags = data;
     })
   }

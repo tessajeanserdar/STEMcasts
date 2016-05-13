@@ -1,5 +1,7 @@
-<div>
-  <div class="tag-list"  ng-repeat="tag in podcastTags">
-     <a href='#/player' ng-click='getPodcastsForTag(tag)'>{{tag.name}}</a>
+<ul class="collection with-header">
+  <div id="channel-container" class"channels">
+  <li id="channel-list" class="collection-header" ng-repeat="tag in podcastTags"> 
+    <a href='#/player' ng-click='getPodcastsForTag(tag)'>{{tag.name}}</a>
+  </li>
   </div>
-</div>
+</ul>

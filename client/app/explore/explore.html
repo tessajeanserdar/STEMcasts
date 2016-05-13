@@ -1,6 +1,11 @@
-<input type="text" class="form-control" ng-model="searchString" placeholder='Search: e.g. "Javascript Jabber" or "Adventures in Angular"' ng-change="search()"/>
 
-<div ng-repeat="resource in results">
-<a href='#/player' ng-click='sendTags(resource)'>{{resource.text}}</a>
-</div>
 
+
+    <div id="search-explore" class="valign-wrapper">
+      <input type="text" class="blue-grey darken-2 form-control" ng-model="searchString" placeholder='Search: e.g. "Javascript Jabber" or "Adventures in Angular"' ng-change="search()" type='text'>
+   <!--    <i class='icon ion-ios-search'></i>
+      <i class='icon ion-ios-close-empty'></i> -->
+    </div>
+      <div class='results' ng-repeat="resource in results">
+        <a href='#/player' ng-click='sendTags(resource)'>{{resource.text}}</a>
+      </div>

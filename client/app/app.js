@@ -1,4 +1,5 @@
 angular.module('fickle', [
+  'angularSoundManager',
   'fickle.auth',
   'fickle.services',
   'fickle.user',
@@ -6,11 +7,13 @@ angular.module('fickle', [
   'fickle.elasticSearch',
   'fickle.channel',
   'fickle.browse',
+  'fickle.show',
+  'fickle.welcome', 
   'ui.router'
 ])
 .config(function ($stateProvider, $urlRouterProvider) {
 
- $urlRouterProvider.otherwise("/search");
+ $urlRouterProvider.otherwise("/welcome");
  $stateProvider
    .state('login', {
      url: "/login",
@@ -41,6 +44,16 @@ angular.module('fickle', [
     url: "/browse",
     templateUrl: "/app/browse/browse.html",
     controller: 'browseController'
+  })
+  .state('show', {
+    url: "/show",
+    templateUrl: "/app/show/show.html",
+    controller: 'showController'
+  })
+  .state('welcome', {
+    url: "/welcome",
+    templateUrl: "/app/welcome/welcome.html",
+    controller: 'welcomeController'
   });
 });
 

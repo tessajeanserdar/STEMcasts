@@ -1,16 +1,15 @@
 angular.module('fickle.elasticSearch', [])
 .controller('elasticController', function ($scope, Search,Podcasts) {
   $scope.search = function() {
-    q = $scope.searchString;
-    if (q.length > 1) {
-      Search.searchPodcasts(q).then(function (data) {
+    var input = $scope.searchString;
+    if (input.length > 1) {
+      Search.searchPodcasts(input).then(function (data) {
         $scope.results = data.docsuggest[0].options;
       });
     } else {
       $scope.results = [];
     }
   };
-
   $scope.sendTags = function(selected) {
     var isShow = selected.payload.url ? true : false;
     var obj = { name: selected.text, isShow: isShow };
@@ -19,3 +18,5 @@ angular.module('fickle.elasticSearch', [])
     Podcasts.setTags(selected,"explore");
   };
 })
+
+

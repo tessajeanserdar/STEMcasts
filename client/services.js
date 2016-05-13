@@ -36,6 +36,7 @@ angular.module('fickle.services', [])
       url: '/tags',
     })
     .then(function (resp) {
+      console.log(resp)
       return resp.data;
     });
   };
@@ -43,7 +44,6 @@ angular.module('fickle.services', [])
   var setTags = function(resource,type) {
     rec = resource;
     queueType = type;
-    console.log(rec,queueType)
   };
 
   var getPodcasts = function (user) {
@@ -221,6 +221,32 @@ angular.module('fickle.services', [])
   return {
     getPopularPodcasts : getPopularPodcasts
   }
-});
+})
+.factory('Show',function($http){
+  var setShow = function (showname){
+    currentShow =  showname;
+  }
+
+
+  var getShowsEpisodes = function () {
+    var showsOptions = {
+      showName : currentShow
+    }
+    console.log("currentShow",showsOptions)
+    return $http({
+      method: 'POST',
+      url: '/show',
+      data: showsOptions
+    })
+    .then(function (resp) {
+      console.log(resp.data)
+      return resp.data;
+    });
+  };    
+  return {
+    getShowsEpisodes : getShowsEpisodes,
+    setShow : setShow
+  }
+})
 
 

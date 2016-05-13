@@ -1,8 +1,17 @@
-<div class="images" ng-controller="browseController" class="md-padding checkboxdemoSyncing" ng-cloak="" style="min-height:270px" ng-app="fickle.browse">
-  <div class="singleimage img-thumbnail" ng-repeat="podcast in browseResults">
-    <img height = "110" width ="110" src="{{podcast[0]}}">
-    <p>{{podcast[1]}}</p>
-    <p>{{podcast[2]}}</p>
+<div class="wrapper" class="container-fluid">
+  <div class="row">
+     <div class="row">
+        <div ng-repeat="podcast in browseResults" class="col-sm-3 col-xs-6 podcast-media" data-col="col-sm-6"> 
+          <div class="card">
+            <a a href='#/show' ng-click="getShow(podcast.name)"><img class="image-thumb" class="card-img-top" src="{{podcast.thumbnail}}" alt="Card image cap"></a>
+            <div class="card-block">
+              <p class="full-show">
+                {{podcast.name.slice(0, 22).concat('...')}}
+                <a href="#" class="btn btn-block btn-lg btn-secondary">Button</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
-

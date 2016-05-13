@@ -1,59 +1,68 @@
-<html>
+<html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>STEMcasts</title>
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-  <link href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel = 'stylesheet' type="text/css" media = 'screen'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Materialize style sheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+
 
   <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
 
-  <!-- Material Design fonts -->
-   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-   <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-   <!-- Bootstrap Material Design -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/bootstrap-material-design.css" rel="stylesheet">
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.7/css/ripples.min.css" rel="stylesheet">
 </head>
 <body ng-app='fickle'>
-  <nav class="navbar navbar-default">
-    <a class="navbar-brand" ui-sref="#">STEMcasts</a>
-    <ul class="nav navbar-nav navbar-right"></ul>
-    <ul class="nav navbar-nav navbar-right">
-    <li ng-class="{ active: isActive('/explore')}">
-      <a href="#/explore"> Explore </a>
-    </li>
-    <li ng-class="{ active: isActive('/browse')}">
-      <a href="#/browse"> Browse </a>
-    </li>
-    <li ng-class="{ active: isActive('/channel')}">
-      <a href="#/channel"> Channels </a>
-    </li>
-    <li ng-class="{ active: isActive('/user')}">
-      <a href="#/user"> Profile </a>
-    </li>
-    </ul>
-  </nav>
-  <div class="container">
-      <div ui-view></div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.16/angular-ui-router.min.js"></script>
 
+    <div class='nav-container'>
+      <div class="title">
+      <ul class="nav-list nav nav-pills">
+          <li class="nav-item first"><a  href="#/explore" data-toggle="tab">Explore</a></li>
+          <li class="nav-item"><a href="#/browse" data-toggle="tab">Browse</a></li>
+          <li class="nav-item"><a href="#/" data-toggle="tab">Recommended</a></li>
+          <li class="nav-item last"><a href="#/channel" data-toggle="tab">Genres</a></li>
+      </ul>
+     </div>
+       <div class="tab-pane active">
+         <ui-view class="main-view"></ui-view> 
+       </div>
+    </div>
+
+
+
+
+<!--     <div class="tab-content clearfix">
+      <div class="tab-pane active" id="1a">
+        <ui-view class="main-view"></ui-view> 
+      </div>
+    </div> -->
+
+
+
+
+        
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.16/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular-soundmanager2/dist/angular-soundmanager2.js"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!-- STEMcast  -->
   <script src="app/player/player.js"></script>
   <script src="app/login/login.js"></script>
   <script src="app/user/user.js"></script>
   <script src="app/explore/explore.js"></script>
   <script src="app/channel/channel.js"></script>
   <script src="app/browse/browse.js"></script>
+  <script src="app/show/show.js"></script>
+  <script src="app/welcome/welcome.js"></script>
   <script src="services.js"></script>
   <script src="app/app.js"></script>
+
+
+
 </body>
-  
 </html>

@@ -20,6 +20,7 @@ module.exports = function(app, express){
     // app.post("/editEp", resourceController.editEpisode);
     app.post('/explore', resourceController.getExploreQueue);
     app.post('/channel', resourceController.getChannelQueue);
+    app.post('/show',resourceController.getShowEpisodes)
     app.post('/likeResource', userResourceController.likeResource);
     app.post('/dislikeResource', userResourceController.dislikeResource);
     app.post('/resourceHistory', userResourceController.markAsSeen);
