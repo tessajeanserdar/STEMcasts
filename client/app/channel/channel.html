@@ -1,7 +1,14 @@
-<ul class="collection with-header">
-  <div id="channel-container" class"channels">
-  <li id="channel-list" class="collection-header" ng-repeat="tag in podcastTags"> 
-    <a href='#/player' ng-click='getPodcastsForTag(tag)'>{{tag.name}}</a>
-  </li>
-  </div>
-</ul>
+<div class="spinner" ng-hide="loaded"></div>
+
+<div ng-cloak="" ng-show="loaded">
+  <a name="top"></a>
+  <div class="stemcast-be-together-section mdl-typography--text-center">
+    <div class="channel-list  mdl-grid">
+          <div class="mdl-cell channel-row mdl-cell--6-col" ng-repeat="tag in podcastTags">
+            <a class="logo-font stemcast-mid-slogan channels" href='#/player' ng-click='getPodcastsForTag(tag)'>
+              <br>
+              {{tag.name}}
+            </a>
+      </div>  
+</div>
+
