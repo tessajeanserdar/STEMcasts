@@ -1,17 +1,18 @@
-<div class="wrapper" class="container-fluid">
-  <div class="row">
-     <div class="row">
-        <div ng-repeat="podcast in browseResults" class="col-sm-3 col-xs-6 podcast-media" data-col="col-sm-6"> 
-          <div class="card">
-            <a a href='#/show' ng-click="getShow(podcast.name)"><img class="image-thumb" class="card-img-top" src="{{podcast.thumbnail}}" alt="Card image cap"></a>
-            <div class="card-block">
-              <p class="full-show">
-                {{podcast.name.slice(0, 22).concat('...')}}
-                <a href="#" class="btn btn-block btn-lg btn-secondary">Button</a>
-              </p>
-            </div>
-          </div>
+<div class="spinner" ng-hide="loaded"></div>
+
+<div ng-cloak="" ng-show="loaded">
+  <a name="top"></a>
+  <div class="stemcast-be-together-section mdl-typography--text-center">
+    <div class="mdl-grid browse logo-font stemcast-mid-slogan">
+      <div ng-repeat="podcast in browseResults" class="demo-card-square mdl-card mdl-shadow--2dp">
+        <div style="background: url('{{podcast.thumbnail}}') center / cover;" class="mdl-card__title mdl-card--expand">
+          <h2 class="mdl-card__title-text"></h2>
         </div>
-      </div>
+        <div class="mdl-card__actions mdl-card--border browse-card">
+          <a href='#/show' ng-click="getShow(podcast.name)" class="browse-title mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            {{podcast.name.slice(0, 22).concat('...')}}
+          </a>
+        </div>
+    </div>
   </div>
 </div>
