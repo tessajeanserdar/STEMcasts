@@ -33,7 +33,6 @@ module.exports = function(app, express){
     app.post('/getRec', resourceController.getRec);
     app.post('/signin', loginController.signin);
     app.post('/signup', loginController.signup);
-    app.post('/logout', loginController.logout);
     app.get('/browse', resourceController.browse);
 
 }

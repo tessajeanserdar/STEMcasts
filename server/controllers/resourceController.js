@@ -60,8 +60,6 @@ module.exports = {
                         userPreferences,
                         function(err, query) {
                           if (err) { console.log(err) }
-                          console.log(query.data[0]);
-
                           userPreferences.newUserResults = _.map(query.data,function(item){
                             return {
                               title: item[0],

@@ -1,11 +1,29 @@
-
-
-
-    <div id="search-explore" class="valign-wrapper">
-      <input type="text" class="blue-grey darken-2 form-control" ng-model="searchString" placeholder='Search: e.g. "Javascript Jabber" or "Adventures in Angular"' ng-change="search()" type='text'>
-   <!--    <i class='icon ion-ios-search'></i>
-      <i class='icon ion-ios-close-empty'></i> -->
-    </div>
-      <div class='results' ng-repeat="resource in results">
-        <a href='#/player' ng-click='sendTags(resource)'>{{resource.text}}</a>
+<div>
+  <a name="top"></a>
+  <div class="stemcast-be-together-section mdl-typography--text-center">
+  <div class="logo-font stemcast-mid-slogan"> Search for a podcast you like, get a custom playlist. </div>
+    <form action="#">
+      <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+        <i class="material-icons">search</i>
+      </label>
+      <div class="mdl-textfield mdl-js-textfield">
+        <input ng-model="searchString" class="mdl-textfield__input" type="text" id="sample1" placeholder='Search: e.g. "Javascript Jabber" or "Adventures in Angular"' ng-change="search()">
+        <label class="mdl-textfield__label" for="sample1"></label>
       </div>
+    </form>
+    <div mdl-layout-spacer>
+     <ul class="demo-list-item mdl-list">
+       <li class="mdl-list__item" ng-repeat="resource in results">
+         <span class="mdl-list__item-primary-content">
+           <a href='#/player' ng-click='sendTags(resource)'>{{resource.text}}</a>
+         </span>
+       </li>
+     </ul>
+    </div>
+   </div>
+</div>
+
+
+
+
+

@@ -21,7 +21,8 @@ angular.module('fickle.auth', [])
 
   $scope.signup = function () {
     $scope.signUpError = '';
-    Auth.signup(JSON.stringify($scope.user))
+    var userInfo = JSON.stringify($scope.user)
+    Auth.signup(userInfo)
     .then(function(message){
       if(message==="existing"){
         alert("You already have an account. Please login.");

@@ -12,6 +12,8 @@ angular.module('fickle.services', [])
     });
   }
   var signup = function (user) {
+    console.log("user in controller",user)
+    var user = JSON.stringify(user)
     return $http({
       method: 'POST',
       url: '/signup',
@@ -215,6 +217,7 @@ angular.module('fickle.services', [])
       url: '/browse'
     })
     .then(function (resp) {
+      console.log("got browse response")
       return resp.data;
     });
   };    
@@ -226,8 +229,6 @@ angular.module('fickle.services', [])
   var setShow = function (showname){
     currentShow =  showname;
   }
-
-
   var getShowsEpisodes = function () {
     var showsOptions = {
       showName : currentShow
@@ -248,5 +249,124 @@ angular.module('fickle.services', [])
     setShow : setShow
   }
 })
+.factory('jqueryAudioPlayer',function(tracks){
+  console.log(tracks)
+   var jqueryMedia = function(tracks) {
+    jQuery(function($) {
+                   var supportsAudio = !!document.createElement('audio').canPlayType;
+  if(supportsAudio) {
+      var index = 0,
+      playing = false;
+      mediaPath = '/how_to/assets/media/audio/',
+      extension = '',
+      // tracks = [
+      //     {"track":1,"name":"Happy Birthday Variation: In the style of Beethoven","length":"00:55","file":"01_Happy_Birthday_Variation_In_The"},
+      //     {"track":2,"name":"Wedding March Variation 1","length":"00:37","file":"02_Wedding_March_1"},
+      //     {"track":3,"name":"Happy Birthday Variation: In the style of Tango","length":"01:05","file":"03_Happy_Birthday_Variation_In_The"},
+      //     {"track":4,"name":"Wedding March Variation 2","length":"00:40","file":"04_Wedding_March_2"},
+      //     {"track":5,"name":"Random Classical","length":"00:59","file":"05_AFI_com"}
+      // ],
+      tracks = tracks,
+      trackCount = tracks.length,
+      npAction = $('#npAction'),
+      npTitle = $('#npTitle'),
+            audio = $('#audio1').bind('play', function() {
+                playing = true;
+                npAction.text('Now Playing:');
+            }).bind('pause', function() {
+                playing = false;
+                npAction.text('Paused:');
+            }).bind('ended', function() {
+                npAction.text('Paused:');
+                if((index + 1) < trackCount) {
+                    index++;
+                    loadTrack(index);
+                    audio.play();
+                } else {
+                    audio.pause();
+                    index = 0;
+                    loadTrack(index);
+                }
+            }).get(0),
+             btnPrev = $('#btnPrev').click(function() {
+                 if((index - 1) > -1) {
+                     index--;
+                     loadTrack(index);
+                     if(playing) {
+                         audio.play();
+                     }
+                 } else {
+                     audio.pause();
+                     index = 0;
+                     loadTrack(index);
+                 }
+             }),
+             btnNext = $('#btnNext').click(function() {
+                 if((index + 1) < trackCount) {
+                     index++;
+                     loadTrack(index);
+                     if(playing) {
+                         audio.play();
+                     }
+                 } else {
+                     audio.pause();
+                     index = 0;
+                     loadTrack(index);
+                 }
+             }),
+              li = $('#plUL li').click(function() {
+                  var id = parseInt($(this).index());
+                  console.log(id)
+                  if(id !== index) {
+                      playTrack(id);
+                  }
+              }),
+              loadTrack = function(id) {
+                  $('.plSel').removeClass('plSel');
+                  $('#plUL li:eq(' + id + ')').addClass('plSel');
+                  npTitle.text(tracks[id].name);
+                  index = id;
+                  audio.src = 'http://www.stephaniequinn.com/Music/Allegro%20from%20Duet%20in%20C%20Major.mp3';
+              },
+              playTrack = function(id) {
+                  loadTrack(id);
+                  audio.play();
+              };
+              if(audio.canPlayType('audio/ogg')) {
+                  extension = '.ogg';
+              }
+              if(audio.canPlayType('audio/mpeg')) {
+                  extension = '.mp3';
+              }
+              loadTrack(index);
+          }
+          });
+       }
 
+      return {jqueryMediaPlayer : jqueryMedia}
+})
+.factory('audio',function ($document) {
+  var playNext = function(currentShow){
+    var audioElement = document.querySelector('.audioPlayer');
+    audioElement.src = currentShow.url;
+    audioElement.play(); 
+  }
 
+  var initPlay = function(){
+    var audioElement = document.querySelector('.audioPlayer');
+    var playButton = document.querySelector('.play');
+    playButton.addEventListner("click" ,function () {
+      audioElement.play();
+    })
+  }
+
+  var stopPlay = function() {
+    var audioElement = document.querySelector('.audioPlayer');
+    audioElement.stop();
+  }
+  
+  return { 
+    playNext: playNext,
+    initPlay : initPlay
+   }
+});

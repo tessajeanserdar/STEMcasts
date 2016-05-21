@@ -1,37 +1,17 @@
-  <div class="row">
-          <div class="col-md-12">
-              <h5>Songs</h5>
-              <ul>
-                  <li ng-repeat="song in songs">
-                      <button music-player data-type="playTrack" data-song="{{ $index }}" all-songs="songs"
-                              my-playlist="playlist">{{ song.title }}
-                      </button>
-                  </li>
-              </ul>
-              <button play-all="songs" my-playlist="playlist">Play all</button>
-          </div>
-      </div>
-      <hr />
-      <div class="row">
-          <div class="col-md-12">
-              <!-- init soundManager2 player -->
-              <sound-manager></sound-manager>
-              <p>
-                  Currently Playing: {{ currentPlaying.title }} ({{ currentPostion }} / {{ currentDuration }})
-              </p>
-              <div class="seekBase" seek-track>
-                  <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
-              </div>
-              <br />
-              <button play-music>Play</button>
-              <button stop-music>Stop</button>
-              <button next-track>Next Track</button>
-              <br/>
-              <br/>
-              Volume: {{ volume }}
-              <button music-volume data-type="increase">+</button>
-              <button music-volume data-type="decrease">-</button>
-              <span ng-if="currentPlaying.id == song.id">(current)</span>
-          </div>
-      </div>
-  </div>   
+
+  
+<div class="spinner" ng-hide="loaded"></div>
+  <div ng-cloak="" ng-show="loaded"> 
+    <div class="audio-container">
+      <audio class="audioPlayer" ng-src="{{currentSong.url | trustUrl}}" audioplayer controls></audio>
+
+<!--       <video width="420" height="340" controls>
+        <source src="http://download.ted.com/talks/HarryBaker_2014X-64k.mp4?apikey=172BB350-0004" type="video/mp4">
+      Your browser does not support the video tag.
+      </video> -->
+    </div>
+    <button ng-click="initPlay()" class="play mdl-button mdl-js-button mdl-button--raised">   Play </button>
+    <button ng-click="moveToNext()" class="play mdl-button mdl-js-button mdl-button--raised">   Next </button>
+    <button ng-click="stopPlay()" class="play mdl-button mdl-js-button mdl-button--raised">   Stop </button>
+
+</div>   

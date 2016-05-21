@@ -1,116 +1,664 @@
-#player-queue.col.s1 {
-  height: 32%;
-  width: 16.5%;
-  background-color: yellow;
 
+body {
+  margin: 0;
 }
 
-#channel-list {
-  text-align: left;
-  max-width: 400px;
+a {
+  color: rgb(30,144,255);
+  text-decoration: none;
+}
+input:focus {outline:0;}
+/* Disable ugly boxes around images in IE10 */
+a img{
+  border: 0px;
+}
+
+::-moz-selection {
+  background-color: rgb(30,144,255);
+  color: #fff;
+}
+
+::selection {
+  background-color: rgb(30,144,255);
+  color: #fff;
+}
+
+.stemcast-search-box .mdl-textfield__input {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.stemcast-header .mdl-menu__container {
+  z-index: 50;
+  margin: 0 !important;
+}
+
+
+.mdl-textfield--expandable {
+  width: auto;
+}
+
+.stemcast-fab {
+  position: absolute;
+  right: 20%;
+  bottom: -26px;
+  z-index: 3;
+  background: #64ffda !important;
+  color: black !important;
+}
+
+.stemcast-mobile-title {
+  display: none !important;
+}
+
+
+.stemcast-logo-image {
   width: 50%;
-  padding:10px;
-  margin: 0 auto;
-  background-color: lightgrey;
+  height: 100px;
+  padding-top: 14%;
+}
+
+
+.stemcast-header {
+  overflow: visible;
+  background-color: white;
+}
+
+  .stemcast-header .material-icons {
+    color: #767777 !important;
+  }
+
+  .stemcast-header .mdl-layout__drawer-button {
+    background: transparent;
+    color: #767777;
+  }
+
+  .stemcast-header .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .stemcast-navigation-container {
+    /* Simple hack to make the overflow happen to the left instead... */
+    direction: rtl;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 500px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .stemcast-navigation {
+    /* ... and now make sure the content is actually LTR */
+    direction: ltr;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 800px;
+  }
+
+  .stemcast-search-box.is-focused + .stemcast-navigation-container {
+    opacity: 0;
+    width: 100px;
+  }
+
+
+  .stemcast-navigation .mdl-navigation__link {
+    display: inline-block;
+    height: 60px;
+    line-height: 68px;
+    background-color: transparent !important;
+    border-bottom: 4px solid transparent;
+  }
+
+    .stemcast-navigation .mdl-navigation__link:hover {
+      border-bottom: 4px solid rgb(30,144,255);
+    }
+
+  .stemcast-search-box {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .stemcast-more-button {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+
+
+.stemcast-drawer {
+  border-right: none;
+}
+
+  .stemcast-drawer-separator {
+    height: 1px;
+    background-color: #dcdcdc;
+    margin: 8px 0;
+  }
+
+  .stemcast-drawer .mdl-navigation__link.mdl-navigation__link {
+    font-size: 14px;
+    color: #757575;
+  }
+
+  .stemcast-drawer span.mdl-navigation__link.mdl-navigation__link {
+    color: #8bc34a;
+  }
+
+  .stemcast-drawer .mdl-layout-title {
+    position: relative;
+    background: rgb(30,144,255);
+    height: 160px;
+  }
+
+    .stemcast-drawer .stemcast-logo-image {
+      position: absolute;
+      bottom: 16px;
+    }
+
+.stemcast-be-together-section {
+  position: relative;
+  height: 800px;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('images/slide01.jpg') center 30% no-repeat;
+  background-size: cover;
+}
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500;
+}
+
+.stemcast-slogan {
+  font-size: 60px;
+  padding-top: 160px;
+}
+
+.stemcast-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.stemcast-mid-slogan {
+  font-size: 24px;
+  padding-top: 38px;
+}
+
+
+.stemcast-create-character {
+  font-size: 21px;
+  padding-top: 400px;
+}
+
+  .stemcast-create-character a {
+    text-decoration: none;
+    color: #767777;
+    font-weight: 300;
+  }
+
+.stemcast-screen-section {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.stemcast-screens {
+  text-align: right;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.stemcast-screen {
   text-align: center;
 }
 
-#channel-container.channels.collection{
-  padding:5%;
+.stemcast-screen .stemcast-link {
+  margin-top: 16px;
+  display: block;
+  z-index: 2;
 }
 
-body {
-  background-color: #5D8CAE;
+.stemcast-image-link {
+  text-decoration: none;
 }
 
-#search-explore{
-    margin: 0 auto;
-    max-width: 600px;
-    max-height: 200px;
+.stemcast-wear {
+  display: inline-block;
+  width: 160px;
+  margin-right: 32px;
 }
 
-#top-nav.col.s3 {
-  padding: 1.5%;
+  .stemcast-wear .stemcast-screen-image {
+    width: 40%;
+    z-index: 1;
+  }
+
+
+.stemcast-phone {
+  display: inline-block;
+  width: 64px;
+  margin-right: 48px;
 }
 
-body {
-  padding : 10px ;
-  
+  .stemcast-phone .stemcast-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+
+.stemcast-tablet {
+  display: inline-block;
+  width: 110px;
+  margin-right: 64px;
 }
 
-.nav>li>a {
-  color: antiquewhite;
+  .stemcast-tablet .stemcast-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+  .stemcast-tablet .stemcast-link {
+    display: block;
+    z-index: 2;
+  }
+
+
+.stemcast-tv {
+  display: inline-block;
+  width: 300px;
+  margin-right: 80px;
 }
 
-.nav>li>a:hover{
-  color: #4682B4;
-  background-color: #DCDCDC;
+  .stemcast-tv .stemcast-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
 
+
+.stemcast-auto {
+  display: inline-block;
+  width: 300px;
+  overflow: hidden;
 }
 
-.title {
-    width: auto;
-    height:auto%;
-    text-align: center;
-    text-transform: uppercase;
-    position: absolute;
-    left: 50%;
-    top: 6%;
-    margin: -15px 0 0 -210px;
-    background-color: #4682B4;
-    border-radius:4px;
-}
+  .stemcast-auto .stemcast-screen-image {
+    display: block;
+    height: 300px;
+    z-index: 1;
+  }
 
 
-.tab-pane.active{
-  padding:7%;
-}
-
-.image-thumb {   
-  display:block;
-  padding: 2%;
-  height: 140px;
-  width: 140px;
-  border-radius: 15%;
-  margin: 0 auto;
-}
-
-.wrapper {
-  background-color: rgba(89, 127, 165, 0.3);
-  border-radius: 15px; 
-  font-weight: 600;
-}
-
-.full-show {
-    font-family: Lato;
-    font-size: 18px;
-    color: antiquewhite;
-    text-align: center; 
-}
-
-
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,800|Roboto+Slab:300);
-
-body {
-  font-family: Roboto Slab;
-}
-.card {
-  margin: 2rem auto;
-}
-.image {
-  width: 100%;
-  height: 0;
-  padding-bottom: 50%;
-  transition: 0.1s linear;
-  background-image: url(http://www.freeallimages.com/wp-content/uploads/2014/09/space-cat-wallpaper-5.jpg);
+.stemcast-wear-section {
+  position: relative;
+  background: url('images/wear.png') center top no-repeat;
   background-size: cover;
-  background-position: center center;
+  height: 800px;
 }
 
-.card-title {
-  margin-bottom: 1rem;
-  font-family: Raleway;
-  font-weight: 900;
+.stemcast-wear-band {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #37474f;
+}
+
+.stemcast-wear-band-text {
+  max-width: 800px;
+  margin-left: 25%;
+  padding: 24px;
+  text-align: left;
+  color: white;
+}
+
+  .stemcast-wear-band-text p {
+    padding-top: 8px;
+  }
+
+.stemcast-link {
+  text-decoration: none;
+  color: #8bc34a !important;
+}
+
+  .stemcast-link:hover {
+    color: #7cb342 !important;
+  }
+
+  .stemcast-link .material-icons {
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+.stemcast-alt-link {
+  text-decoration: none;
+  color: #64ffda !important;
+  font-size: 16px;
+}
+
+  .stemcast-alt-link:hover {
+    color: #00bfa5 !important;
+  }
+
+  .stemcast-alt-link .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
+.stemcast-customized-section {
+  text-align: center;
+}
+
+.stemcast-customized-section-text {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px 16px 0 16px;
+}
+
+  .stemcast-customized-section-text p {
+    padding-top: 16px;
+  }
+
+.stemcast-customized-section-image {
+  background: url('images/devices.jpg') center top no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.stemcast-more-section {
+  padding: 80px 0;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .stemcast-more-section .stemcast-section-title {
+    margin-left: 12px;
+    padding-bottom: 24px;
+  }
+
+.stemcast-card-container {
+}
+
+  .stemcast-card-container .mdl-card__media {
+    overflow: hidden;
+    background: transparent;
+  }
+
+    .stemcast-card-container .mdl-card__media img {
+      width: 100%;
+    }
+
+  .stemcast-card-container .mdl-card__title {
+    background: transparent;
+    height: auto;
+  }
+
+  .stemcast-card-container .mdl-card__title-text {
+    color: black;
+    height: auto;
+  }
+
+  .stemcast-card-container .mdl-card__supporting-text {
+    height: auto;
+    color: black;
+    padding-bottom: 56px;
+  }
+
+  .stemcast-card-container .mdl-card__actions {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .stemcast-card-container .mdl-card__actions a {
+    border-top: none;
+    font-size: 16px;
+  }
+
+.stemcast-footer {
+  background-color: #fafafa;
+  position: relative;
+}
+
+  .stemcast-footer a:hover {
+    color: #8bc34a;
+  }
+
+  .stemcast-footer .mdl-mega-footer--top-section::after {
+    border-bottom: none;
+  }
+
+  .stemcast-footer .mdl-mega-footer--middle-section::after {
+    border-bottom: none;
+  }
+
+  .stemcast-footer .mdl-mega-footer--bottom-section {
+    position: relative;
+  }
+
+  .stemcast-footer .mdl-mega-footer--bottom-section a {
+    margin-right: 2em;
+  }
+
+  .stemcast-footer .mdl-mega-footer--right-section a .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
+
+.stemcast-link-menu:hover {
+  cursor: pointer;
 }
 
 
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+  .stemcast-navigation-container {
+    display: none;
+  }
+
+  .stemcast-title {
+    display: none !important;
+  }
+
+  .stemcast-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+     consecutive "+" operators in some cases. Therefore, we need to use both
+     here to cover all the bases. */
+  .stemcast.stemcast-search-box.is-focused ~ .stemcast-mobile-title,
+  .stemcast-search-box.is-focused + .stemcast-navigation-container + .stemcast-mobile-title {
+    opacity: 0;
+  }
+
+  .stemcast-more-button {
+    display: none;
+  }
+
+  .stemcast-search-box.is-focused {
+    width: calc(100% - 48px);
+  }
+
+  .stemcast-search-box .mdl-textfield__expandable-holder {
+    width: 100%;
+  }
+
+  .stemcast-be-together-section {
+    height: 350px;
+  }
+
+  .stemcast-slogan {
+    font-size: 26px;
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .stemcast-sub-slogan {
+    font-size: 16px;
+    margin: 0 16px;
+    padding-top: 8px;
+  }
+
+  .stemcast-create-character {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .stemcast-create-character img {
+    height: 12px;
+  }
+
+  .stemcast-fab {
+    display: none;
+  }
+
+  .stemcast-wear-band-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .stemcast-footer .mdl-mega-footer--bottom-section {
+    display: none;
+  }
+}
+
+.demo-list-item {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+}
+
+.mdl-card__title.mdl-card--expand{
+  margin: 20px;
+  border-radius: 4%;
+}
+
+.demo-card-square.mdl-card {
+  width: 220px;
+  height: 220px;
+  margin: 2%;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}
+
+
+.demo-card-image.mdl-card {
+  width: 256px;
+  height: 256px;
+  background: url('../assets/demos/image_card.jpg') center / cover;
+}
+.demo-card-image > .mdl-card__actions {
+  height: 52px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.demo-card-image__filename {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mdl-grid.browse{
+  margin-left:100px;
+}
+
+.channel-list.mdl-grid {
+  max-width: 960px;
+  padding-top:8.5%;
+}
+
+.channel-row{
+  height:60px;
+  background-color: rgb(70,130,180);
+  border-radius:2%;
+  padding-bottom: 3%;
+  }
+
+.logo-font.stemcast-mid-slogan.channels{
+  font-size: 23px;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+  padding:0;
+  margin:0;
+  padding-top:50%;
+}
+
+.browse-title.mdl-button {
+  color:white;
+}
+
+
+.mdl-card__actions.browse-card {
+  background-color: rgb(112,128,144)
+}
+
+.demo-card-square.mdl-card {  
+  background-color: rgb(220,220,220)
+}
+
+ng-cloak {
+    display: none !important;
+}
+
+@keyframes rotate360 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rotate360 {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+
+.spinner {
+  border-radius: 50px;
+  border-style: solid;
+  border-bottom-color: rgb(220,220,220);
+  border-top-color: rgb(220,220,220);
+  border-left-color: rgb(30,144,255);
+  border-right-color: rgb(30,144,255);
+  text-align: center;
+  animation: rotate360 1s linear infinite;
+  -webkit-animation: rotate360 1s linear infinite;
+  border-width: 4px;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 20%;
+}
+
+
+audio { 
+   display:none;
+}
+
+.mdl-textfield__input{
+  width: 400px;
+}
+
+#login-table {
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 8%;
+}

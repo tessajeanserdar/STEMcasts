@@ -1,5 +1,4 @@
 var db = require("../db/db.js");
-// db.create()
 
 module.exports = {
   signin : function(req, res){
@@ -33,7 +32,5 @@ module.exports = {
                 });           
             }
         });
-    },
-    logout: function(req, res){
     }
 };

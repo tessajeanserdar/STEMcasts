@@ -1,11 +1,38 @@
 angular.module('fickle.player',[])
-.controller('playerController', function($scope,Podcasts,UserResources,$window) {
+.controller('playerController', function($scope,Podcasts,UserResources,audio,$window) {
     var user = JSON.parse(window.localStorage.getItem('com.fickle'));
     var username = user.username;
+    $scope.loaded = false;
+    $scope.currentSong;
+    var audioElement = document.querySelector('.audioPlayer');
+    console.log(audioElement.buffered.length)
+    $scope.initPlay = function () {
+      audioElement.play();
+    }
+
+    $scope.stopPlay = function() {
+       var oldSrc = audioElement.src;
+       audioElement.src = "";
+    }
+
+    $scope.moveToNext = function () {
+      next()
+    }
+
+    function next () {
+       var nextSong = $scope.songs.pop()
+      console.log("about to try the following link",nextSong.url)
+       audio.playNext(nextSong)
+    }
+
     Podcasts.getPodcasts(username).then(function (data){
-          console.log("we have the results")
-          $scope.songs = data;
+      $scope.loaded = true;
+      $scope.songs = data;
+      $scope.currentSong = $scope.songs.pop();
+      audioElement.addEventListener('ended', next);
+
     })
+
 })
 
 //   $scope.selected = [];
@@ -40,15 +67,7 @@ angular.module('fickle.player',[])
 //     getPods();
 //   };
 
-//   $scope.toggle = function (item, list) {
-//     var idx = list.indexOf(item);
-//     if (idx > -1) list.splice(idx, 1);
-//     else list.push(item.name);
-//   };
 
-//   $scope.exists = function (item, list) {
-//     return list.indexOf(item) > -1;
-//   };
 
 //   $scope.likeResource = function(resource){
 //     var userpref = {
@@ -66,26 +85,7 @@ angular.module('fickle.player',[])
 //       console.error(error);
 //     });
 //   };
-
-//   $scope.dislikeResource = function(resource){;
-//     var userpref = {
-//       'username' : username,
-//       'ResourceName' : resource
-//     }
-//     UserResources.dislikeResource(userpref)
-//     .then(function(message){
-//       if(message ===200){
-//         console.log("You have disliked this")
-//       }
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-//   }
   
-//   $scope.select = function(row) {
-//     row.selected=!row.selected;
-//   }
 
 //   $scope.markAsSeen = function(resource){
 //     var currentDate = new Date().toJSON().slice(0,10)
@@ -105,8 +105,8 @@ angular.module('fickle.player',[])
 //     });
 //   }
 // })
-// .filter("trustUrl", ['$sce', function ($sce) {
-//         return function (recordingUrl) {
-//             return $sce.trustAsResourceUrl(recordingUrl);
-//         };
-// }]);
+.filter("trustUrl", ['$sce', function ($sce) {
+        return function (recordingUrl) {
+            return $sce.trustAsResourceUrl(recordingUrl);
+        };
+}]);

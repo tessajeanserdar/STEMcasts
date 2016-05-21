@@ -1,28 +1,24 @@
-<div id='signin'>
-  <h2> Returning User? <h2>
-  <h3>Sign In</h3>
-  <form name="signinForm" ng-submit='signin()'>
-    <input type='text'ng-model='user.username' placeholder="name"> <br>
-    <input type="password" ng-model='user.password' placeholder="password "> <br>
-    <button>signin</button>
-  </form>
+<div>
+  <div>
+    <h3>Sign In</h3>
+    <form class="form-horizontal" name="signinForm" ng-submit='signin()'>
+      <input class="mdl-textfield__input" type='text'ng-model='user.username' placeholder="name"> <br>
+      <input class="mdl-textfield__input" type="password" ng-model='user.password' placeholder="password "> <br>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">signin</button>
+    </form>
+  </div>
+
+  <div>
+    <form class="form-horizontal" name="signupForm">
+      <fieldset>
+        <h3>Sign Up</h3>
+      <input class="mdl-textfield__input" type='text' ng-model='user.firstname' placeholder="first name"> <br>
+      <input class="mdl-textfield__input" type='text' ng-model='user.lastname' placeholder="last name"> <br>
+      <input class="mdl-textfield__input" type='text' ng-model='user.name' placeholder="username"> <br>
+      <input class="mdl-textfield__input" type='text' ng-model='user.email' placeholder="email"> <br>
+      <input class="mdl-textfield__input" type="password" ng-model='user.pword' placeholder="password"> <br>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"ng-click="signup(user)">signup</button>
+      </fieldset>
+    </form>
+  </div>
 </div>
-
-
-
-<div id='signup' class="form-horizontal">
-  <h2> New user? </h2>
-  <form class="form-horizontal" name="signupForm">
-    <fieldset>
-      <legend>Sign Up</legend>
-    <input type='text' ng-model='user.firstname' placeholder="first name"> <br>
-    <input type='text' ng-model='user.lastname' placeholder="last name"> <br>
-    <input type='text' ng-model='user.name' placeholder="username"> <br>
-    <input type='text' ng-model='user.email' placeholder="email"> <br>
-    <input type="password" ng-model='user.pword' placeholder="password"> <br>
-    <button ng-click="signup(user)">signup</button>
-    </fieldset>
-  </form>
-</div>
-
-
