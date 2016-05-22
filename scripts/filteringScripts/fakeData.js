@@ -1,4 +1,4 @@
-var db = require("../server/db/db.js")
+// var db = require("../server/db/db.js")
 
 //SCRIPT TO ENTER create 50 USERS and have them like 50 random episodes
 

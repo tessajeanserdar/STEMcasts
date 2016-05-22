@@ -3,9 +3,8 @@ var path = require('path');
 var app = express();
 var port = 5050;
 var scraper = require("../scripts/scraper/scraper")
-var fakeData = require("../scripts/fakeData.js")
 var db = require("../server/db/db.js");
-var jaccard = require("../scripts/jaccard.js");
+var jaccard = require("../scripts/filteringScripts/jaccard.js");
 
 app.listen(port, function(){
     console.log('Listening on port '+ port);

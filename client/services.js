@@ -49,11 +49,13 @@ angular.module('fickle.services', [])
   };
 
   var getPodcasts = function (user) {
+    console.log("user name in getPodcasts service",user)
     var userPref ={
       username : user,
       resource : rec,
       queueType : queueType
       } 
+
     if(userPref.resource.length === 0){
       userPref.resource = JSON.parse(window.localStorage.getItem('selected'));
     }
@@ -347,22 +349,22 @@ angular.module('fickle.services', [])
 })
 .factory('audio',function ($document) {
   var playNext = function(currentShow){
+    updateToNext()
     var audioElement = document.querySelector('.audioPlayer');
     audioElement.src = currentShow.url;
     audioElement.play(); 
   }
 
+  var updateToNext = function (){
+    var audioElement = document.querySelector('.audioPlayer');
+    audioElement.src = ""
+  }
   var initPlay = function(){
     var audioElement = document.querySelector('.audioPlayer');
     var playButton = document.querySelector('.play');
     playButton.addEventListner("click" ,function () {
       audioElement.play();
     })
-  }
-
-  var stopPlay = function() {
-    var audioElement = document.querySelector('.audioPlayer');
-    audioElement.stop();
   }
   
   return { 

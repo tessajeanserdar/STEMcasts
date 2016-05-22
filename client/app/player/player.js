@@ -5,32 +5,26 @@ angular.module('fickle.player',[])
     $scope.loaded = false;
     $scope.currentSong;
     var audioElement = document.querySelector('.audioPlayer');
-    console.log(audioElement.buffered.length)
     $scope.initPlay = function () {
       audioElement.play();
     }
-
     $scope.stopPlay = function() {
        var oldSrc = audioElement.src;
        audioElement.src = "";
     }
-
     $scope.moveToNext = function () {
       next()
     }
-
     function next () {
-       var nextSong = $scope.songs.pop()
-      console.log("about to try the following link",nextSong.url)
-       audio.playNext(nextSong)
+       $scope.currentSong = $scope.songs.pop()
+       console.log($scope.currentSong)
+       audio.playNext($scope.currentSong)
     }
-
     Podcasts.getPodcasts(username).then(function (data){
       $scope.loaded = true;
       $scope.songs = data;
       $scope.currentSong = $scope.songs.pop();
       audioElement.addEventListener('ended', next);
-
     })
 
 })

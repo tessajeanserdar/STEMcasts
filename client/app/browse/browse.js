@@ -1,12 +1,13 @@
 angular.module('fickle.browse', [])
-.controller('browseController', function (Browse,$scope, $http, $location, $window,Show) {
-   $scope.loaded = false;
+.controller('browseController', function (Browse,$scope, $http, $location, $window,Show) {  
     Browse.getPopularPodcasts()
     .then(function (data) {
-      $scope.loaded = true;
       $scope.browseResults = data;
     });
+
     $scope.getShow = function(show){
       Show.setShow(show)
     }
-})
+
+ 
+});

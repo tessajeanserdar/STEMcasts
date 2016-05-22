@@ -2,7 +2,7 @@ var noodle = require("noodlejs")
 var fs = require("fs")
 var http = require("http")
 var request = require("request")
-var insertEp = require("../../scripts/redirectURL.js")
+var insertEp = require("./redirectURL.js")
 
 module.exports = {
     //Reads the podcasts (or specified target) file and sends the tags to the getTags Methods
