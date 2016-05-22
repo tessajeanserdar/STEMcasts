@@ -219,7 +219,6 @@ angular.module('fickle.services', [])
       url: '/browse'
     })
     .then(function (resp) {
-      console.log("got browse response")
       return resp.data;
     });
   };    

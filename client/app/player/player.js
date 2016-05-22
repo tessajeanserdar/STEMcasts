@@ -1,7 +1,9 @@
 angular.module('fickle.player',[])
 .controller('playerController', function($scope,Podcasts,UserResources,audio,$window) {
     var user = JSON.parse(window.localStorage.getItem('com.fickle'));
-    var username = user.username;
+    if(user){
+      var username = user.username;
+    }
     $scope.loaded = false;
     $scope.currentSong;
     var audioElement = document.querySelector('.audioPlayer');
