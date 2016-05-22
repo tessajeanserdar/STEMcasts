@@ -1,4 +1,4 @@
-/*
+
 body {
   margin: 0;
 }
@@ -8,6 +8,7 @@ a {
   text-decoration: none;
 }
 input:focus {outline:0;}
+
 a img{
   border: 0px;
 }
@@ -22,9 +23,6 @@ a img{
   color: #fff;
 }
 
-.stemcast-search-box .mdl-textfield__input {
-  color: rgba(0, 0, 0, 0.87);
-}
 
 .stemcast-header .mdl-menu__container {
   z-index: 50;
@@ -109,16 +107,8 @@ a img{
     border-bottom: 4px solid transparent;
   }
 
-    .stemcast-navigation .mdl-navigation__link:hover {
+  .stemcast-navigation .mdl-navigation__link:hover {
       border-bottom: 4px solid rgb(30,144,255);
-    }
-
-  .stemcast-search-box {
-    -webkit-order: 2;
-        -ms-flex-order: 2;
-            order: 2;
-    margin-left: 16px;
-    margin-right: 16px;
   }
 
   .stemcast-more-button {
@@ -379,7 +369,7 @@ a img{
   margin-right: auto;
 }
 
-  .stemcast-more-section .stemcast-section-title {
+.stemcast-more-section .stemcast-section-title {
     margin-left: 12px;
     padding-bottom: 24px;
   }
@@ -422,15 +412,45 @@ a img{
     font-size: 16px;
   }
 
+.stemcast-footer {
+  background-color: #fafafa;
+  position: relative;
+}
+
+  .stemcast-footer a:hover {
+    color: #8bc34a;
+  }
+
+  .stemcast-footer .mdl-mega-footer--top-section::after {
+    border-bottom: none;
+  }
+
+  .stemcast-footer .mdl-mega-footer--middle-section::after {
+    border-bottom: none;
+  }
+
+  .stemcast-footer .mdl-mega-footer--bottom-section {
+    position: relative;
+  }
+
+  .stemcast-footer .mdl-mega-footer--bottom-section a {
+    margin-right: 2em;
+  }
+
+  .stemcast-footer .mdl-mega-footer--right-section a .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
 .stemcast-link-menu:hover {
   cursor: pointer;
 }
 
 
 @media (max-width: 900px) {
-  .stemcast-navigation-container {
+/*  .stemcast-navigation-container {
     display: none;
-  }
+  }*/
 
   .stemcast-title {
     display: none !important;
@@ -444,34 +464,16 @@ a img{
     transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-
-  .stemcast.stemcast-search-box.is-focused ~ .stemcast-mobile-title,
-  .stemcast-search-box.is-focused + .stemcast-navigation-container + .stemcast-mobile-title {
-    opacity: 0;
-  }
-
-  .stemcast-more-button {
-    display: none;
-  }
-
-  .stemcast-search-box.is-focused {
-    width: calc(100% - 48px);
-  }
-
-  .stemcast-search-box .mdl-textfield__expandable-holder {
-    width: 100%;
-  }
-
   .stemcast-be-together-section {
     height: 350px;
   }
 
-  .stemcast-slogan {
+ .stemcast-slogan {
     font-size: 26px;
     margin: 0 16px;
     padding-top: 24px;
+ 
   }
-
   .stemcast-sub-slogan {
     font-size: 16px;
     margin: 0 16px;
@@ -624,4 +626,4 @@ audio {
     margin: 0 auto;
     width: 100%;
     margin-top: 8%;
-}*/
+}
