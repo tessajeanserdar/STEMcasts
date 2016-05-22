@@ -6,9 +6,7 @@ var scraper = require("../scripts/scraper/scraper")
 var db = require("../server/db/db.js");
 var jaccard = require("../scripts/filteringScripts/jaccard.js");
 
-app.listen(port, function(){
-    console.log('Listening on port '+ port);
-});
+app.listen(process.env.PORT || port)
 
 require('../server/config/middleware.js')(app, express);
 require('../server/config/routes.js')(app, express);

@@ -1,0 +1,53 @@
+{
+  "name": "ficklepiglet",
+  "version": "1.0.0",
+  "description": "A search engine with recommendation",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "author": "Tessa Serdar",
+  "license": "ISC",
+  "homepage": "https://github.com/Fickle-Piglet/ficklePiglet#readme",
+  "dependencies": {
+    "angular": "^1.4.9",
+    "angular-animate": "^1.4.9",
+    "angular-aria": "^1.4.9",
+    "angular-material": "^1.0.2",
+    "angular-messages": "^1.4.9",
+    "bluebird": "^3.2.2",
+    "body-parser": "^1.14.2",
+    "browser-sync": "^2.11.1",
+    "elasticsearch": "^10.1.3",
+    "express": "^4.13.4",
+    "gulp-nodemon": "^2.0.6",
+    "karma": "^0.13.19",
+    "lodash": "^4.3.0",
+    "node-neo4j": "^2.0.3",
+    "noodle": "0.0.3",
+    "noodlejs": "^0.3.2",
+    "request": "^2.67.0"
+  },
+  "engines": {
+    "node": "5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-uglify": "^1.5.1",
+    "jshint": "^2.9.1",
+    "karma": "^0.13.19",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.1",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "karma-sinon": "^1.0.4",
+    "mocha": "^2.4.2",
+    "phantomjs": "^2.1.2",
+    "sinon": "^1.17.2"
+  }
+}
