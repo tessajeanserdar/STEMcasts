@@ -6,7 +6,26 @@ var elasticClient = new elasticsearch.Client({
   log: 'trace'
 });
 
+
 var indexName = "main";
+
+function testConnection() {
+    elasticClient.ping({
+        requestTimeout: 30000,
+        hello: "elasticsearch"
+      },
+      function (error) {
+        if (error) {
+          console.error('elasticsearch cluster is down!');
+        } else {
+          console.log('All is well');
+        }
+      }
+    );
+}
+
+exports.testConnection = testConnection;
+
 
 /**
 * Delete an existing index
