@@ -638,3 +638,16 @@ audio {
 .player-song-title{
   font-size:14px;
 }
+
+.angular-view-parent {position: relative;}
+
+.angular-view-child {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 30%;
+    margin: auto;
+}
