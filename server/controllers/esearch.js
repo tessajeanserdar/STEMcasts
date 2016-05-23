@@ -1,7 +1,8 @@
+var bonsai_url    = process.env.BONSAI_URL;
 var elasticsearch = require('elasticsearch');
 
 var elasticClient = new elasticsearch.Client({
-  host: '127.0.0.1:9200',
+  host: bonsai_url,
   log: 'trace'
 });
 

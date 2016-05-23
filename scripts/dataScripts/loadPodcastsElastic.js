@@ -1,5 +1,6 @@
-var db = require("../server/db/db.js");
-var elastic = require("../server/controllers/esearch");
+var neo4j = require('node-neo4j');
+var db = new neo4j("http://Piglet:J1MGgKm3IYYUN9nu2Ori@piglet.sb02.stations.graphenedb.com:24789");
+var elastic = require("./esearch");
 
 db.cypherQuery("Match (t:Tag) return t", function (err, result) {
  if (err) {
@@ -18,8 +19,6 @@ function bulkLoadPodcasts(podcasts) {
     }
   }).then(function () {
     return elastic.initIndex().then(elastic.initMapping).then(function () {
-      //Add a few titles for the autocomplete
-      //elasticsearch offers a bulk functionality as well, but this is for a different time
       podcasts.map(function (podcast) {
         if (podcast.url){
           return elastic.addDocument({
