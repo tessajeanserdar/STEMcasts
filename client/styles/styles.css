@@ -520,18 +520,8 @@ a img{
   height: 220px;
   margin: 2%;
 }
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
-}
 
 
-.demo-card-image.mdl-card {
-  width: 256px;
-  height: 256px;
-  background: url('../assets/demos/image_card.jpg') center / cover;
-}
 .demo-card-image > .mdl-card__actions {
   height: 52px;
   padding: 16px;
@@ -554,7 +544,7 @@ a img{
 
 .channel-row{
   height:60px;
-  background-color: rgb(70,130,180);
+  background-color: rgb(30,144,255);
   border-radius:2%;
   padding-bottom: 3%;
   }
@@ -575,13 +565,12 @@ a img{
 
 
 .mdl-card__actions.browse-card {
-  background-color: rgb(112,128,144)
+  background-color: rgb(30,144,255)
 }
 
-.demo-card-square.mdl-card {  
-  background-color: rgb(220,220,220)
+.player-card {
+  height: 65px;
 }
-
 ng-cloak {
     display: none !important;
 }
@@ -626,4 +615,26 @@ audio {
     margin: 0 auto;
     width: 100%;
     margin-top: 8%;
+}
+
+.noun-project-player{
+  width: 40px;
+  height: 40px;
+}
+
+.mdl-button--raised.mdl-button--colored {
+    background: rgb(30,144,255);
+}
+
+.noun-project-nav{
+  width: 20px;
+  height: 20px;
+}
+
+.mdl-card__title.mdl-card--expand.player-image{
+  width:80px;
+}
+
+.player-song-title{
+  font-size:14px;
 }
