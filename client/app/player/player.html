@@ -1,33 +1,19 @@
 <div class="spinner" ng-hide="loaded"></div>
   <div ng-cloak="" ng-show="loaded"> 
-    <div class="audio-container">
+    <div class="angular-view-child stemcast-be-together-section mdl-typography--text-center">
     <audio class="audioPlayer" ng-src="{{currentSong.url | trustUrl}}" audioplayer controls></audio>
-
         <div class="demo-card-square mdl-card mdl-shadow--2dp">
-          <div style="background: url('{{currentSong.thumbnail}}') center / cover;" class="mdl-card__title mdl-card--expand player-image">
+          <div id="player-image" style="background: url('{{currentSong.thumbnail}}') center / cover;" class="mdl-card__title mdl-card--expand player-image">
           </div>
           <div>
            <img class="noun-project-player" src="assets/img/noun_330115.png" ng-click="initPlay()">
            <img class="noun-project-player" src="assets/img/noun_330116.png" ng-click="stopPlay()">
          </div>
-          <div>
+          <div class="player-description">
             <h2 class="mdl-card__title-text player-song-title">{{currentSong.title.slice(0, 22).concat('...')}}</h2>
             <a href="https://itunes.apple.com/us/podcast/lately-in-javascript-podcast/id396032722?mt=2&uo=4" target="_blank"> itunes </a>
          </div>
-
-<!--       <video width="420" height="340" controls>
-        <source src="http://download.ted.com/talks/HarryBaker_2014X-64k.mp4?apikey=172BB350-0004" type="video/mp4">
-      Your browser does not support the video tag.
-      </video> -->
     </div>
-
- 
-
- <!--    <button ng-click="moveToNext()" class="play mdl-button mdl-js-button mdl-button--raised">   Next </button>
-    <button ng-click="stopPlay()" class="play mdl-button mdl-js-button mdl-button--raised">   Stop </button> -->
-<!--     <img class="noun-project-player" src="assets/img/noun_330116.png" ng-click="stopPlay()">
- -->
-
 </div>   
 
 

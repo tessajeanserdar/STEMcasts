@@ -19,7 +19,6 @@ angular.module('fickle.player',[])
     }
     function next () {
        $scope.currentSong = $scope.songs.pop()
-       console.log($scope.currentSong)
        audio.playNext($scope.currentSong)
     }
     Podcasts.getPodcasts(username).then(function (data){
