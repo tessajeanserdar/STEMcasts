@@ -1,19 +1,19 @@
 angular.module('fickle.services', [])
 .factory('Auth', function ($http, $location, $window) {
   var signin = function (user) {
+    console.log("user in auth controller signin ",user)
     return $http({
       method: 'POST',
       url: '/signin',
       data: user
     })
     .then(function (resp) {
-      console.log("response",resp.data.data)
+      console.log("response",resp)
       return resp.data;
     });
   }
   var signup = function (user) {
     console.log("user in controller",user)
-    var user = JSON.stringify(user)
     return $http({
       method: 'POST',
       url: '/signup',

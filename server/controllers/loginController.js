@@ -6,7 +6,7 @@ module.exports = {
        db.cypherQuery("MATCH (n:User) WHERE n.username={username} and n.password={password} RETURN n", user, function (err, result) {
         if (err) {
           throw error;
-        } else if(result.data.length ===0){
+        } else if(result.data.length === 0){
           console.log("Wrong Input");
           res.send("Wrong Input");
         } else  {
@@ -16,8 +16,8 @@ module.exports = {
        });
     },
     signup: function(req, res){
-      var userInfo = req.body;
-      db.cypherQuery("MATCH (n:User) WHERE n.firstname={firstname} and n.lastname={lastname} and n.username={name} and n.email={email} and n.password={pword} return n", userInfo , function(err, result){
+      var user = req.body;
+      db.cypherQuery("MATCH (n:User) WHERE n.firstname={firstname} and n.lastname={lastname} and n.username={name} and n.email={email} and n.password={pword} return n", user , function(err, result){
             if(err) {
               res.sendStatus(404).json(err);
             } else if (result.data.length!==0) {  

@@ -6,6 +6,8 @@ var scraper = require("../scripts/scraper/scraper")
 var db = require("../server/db/db.js");
 var jaccard = require("../scripts/filteringScripts/jaccard.js");
 
+
+
 app.listen(process.env.PORT || port)
 
 require('../server/config/middleware.js')(app, express);
