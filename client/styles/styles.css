@@ -678,3 +678,18 @@ audio {
   margin: 0 auto;
 }
 
+
+.show-list {
+  width: 500px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.full-show-list{
+  display: none;
+}
+
+.show-main{
+  text-align: center;
+  padding-top: 2%;
+}

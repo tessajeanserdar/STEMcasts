@@ -1,16 +1,19 @@
  <div class="spinner" ng-hide="loaded"></div>
  <div ng-cloak="" ng-show="loaded" class="row">
-   <div class="col-md-12">
-      <button clear-playlist>Clear Playlist</button>
-       <h5>Songs</h5>
-       <ul mdl-list>
-           <li mdl-list__item ng-repeat="song in songs">
-               <button music-player data-type="playTrack" data-song="{{ $index }}" all-songs="songs"
+   <div class="show-list col-md-12">
+       <h5 class="logo-font stemcast-slogan show-main">{{results.showName}}</h5>
+       <img src="{{results.thumbnail}}">
+       <div class="full-show-list mdl-list">
+           <div class="full-show-list" ng-repeat="song in songs">
+               <div class="full-show-list" music-player data-type="playTrack" data-song="{{ $index }}" all-songs="songs"
                        my-playlist="playlist">{{ song.title }}
-               </button>
-           </li>
-       </ul>
-       <button play-all="songs" my-playlist="playlist">Play all</button>
+               </div>
+           </div>
+       </div>
+       <br>
+       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" play-all="songs" my-playlist="playlist">Start</button>
+       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" stop-music>Pause</button>
+       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" play-music>Continue</button>
            <!-- init soundManager2 player -->
        <sound-manager></sound-manager>
        <p>
@@ -20,13 +23,9 @@
            <div class="seekLoad" ng-style="{width : ( progress + '%' ) }"></div>
        </div>
        <br />
-       <button play-music>Play</button>
-       <button stop-music>Stop</button>
+
        <br/>
        <br/>
-       Volume: {{ volume }}
-       <button music-volume data-type="increase">+</button>
-       <button music-volume data-type="decrease">-</button>
        <span ng-if="currentPlaying.id == song.id">(current)</span>
     </div>
   </div>

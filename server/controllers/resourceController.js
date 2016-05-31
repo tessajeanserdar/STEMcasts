@@ -100,7 +100,7 @@ module.exports = {
             });
     },
     browse: function(req, res){
-        db.cypherQuery("match (t:Tag)-[:TAGGED]-(r:Resource) where t.name='Technology' return r.name, r.thumbnail, r.url limit 20;", function(err, response){
+        db.cypherQuery("match (t:Tag)-[:TAGGED]-(r:Resource)--(e:Episode)  return r.name, r.thumbnail, r.url,count(e.title) limit 20;", function(err, response){
             formattedResponse = _.map(response.data,function(item){
               return {
                 name: item[0],
@@ -117,6 +117,7 @@ module.exports = {
         var showDetails = req.body;
         db.cypherQuery("Match (r:Resource {name:{showName}})-[c:EPISODE_OF]-(e:Episode) return r.name,r.thumbnail,r.url,ID(e),e.title,e.link,e.pubDate,count(distinct e.title)", showDetails,function(err,response){
             if(err) {throw err}
+            console.log(response.data)
             formattedResponse = {};
             formattedResponse.showName = response.data[0][0];
             formattedResponse.thumbnail = response.data[0][1];

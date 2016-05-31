@@ -17,6 +17,10 @@ angular.module('fickle.elasticSearch', [])
     window.localStorage.setItem('selected', JSON.stringify(selected))
     Podcasts.setTags(selected,"explore");
   };
+
+  $scope.DoWork = function(){
+        alert('Hello World!');  
+  };
 })
 
 
