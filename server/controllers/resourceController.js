@@ -100,15 +100,12 @@ module.exports = {
             });
     },
     browse: function(req, res){
-        db.cypherQuery("match (t:Tag)-[:TAGGED]-(r:Resource)-[:EPISODE_OF]-(e:Episode)-[:HAS_LIKED]-(u:User) return r.name, r.thumbnail, r.url,collect(distinct t.name),collect(distinct e.title),count(distinct e.title),count(distinct u) order by count( distinct u) DESC limit 12", function(err, response){
+        db.cypherQuery("match (t:Tag)-[:TAGGED]-(r:Resource) where t.name='Technology' return r.name, r.thumbnail, r.url limit 20;", function(err, response){
             formattedResponse = _.map(response.data,function(item){
               return {
                 name: item[0],
                 thumbnail : item[1],
-                itunesLink : item[2],
-                channel : item[3],
-                episodes: item[4],
-                likes : item[6] 
+                itunesLink : item[2]
                 }
             })
             res.send(formattedResponse);

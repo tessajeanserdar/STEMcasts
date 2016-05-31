@@ -673,3 +673,8 @@ audio {
 
 }
 
+.sign-in, .sign-up {
+  width: 400px;
+  margin: 0 auto;
+}
+

@@ -3,8 +3,8 @@
    <div class="col-md-12">
       <button clear-playlist>Clear Playlist</button>
        <h5>Songs</h5>
-       <ul>
-           <li ng-repeat="song in songs">
+       <ul mdl-list>
+           <li mdl-list__item ng-repeat="song in songs">
                <button music-player data-type="playTrack" data-song="{{ $index }}" all-songs="songs"
                        my-playlist="playlist">{{ song.title }}
                </button>
