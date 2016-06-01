@@ -693,3 +693,29 @@ audio {
   text-align: center;
   padding-top: 2%;
 }
+
+.Player-thumbnail{
+  margin-left: 38%;
+}
+
+.player-controlls {
+  margin: 5%;
+  margin-left: 22%;
+}
+
+.current-song {
+  display: none;
+}
+
+.player-buttons {
+  width: 500px;
+  margin: 0 auto;
+  margin-left: 5%;
+}
+
+.browse.logo-font{
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}

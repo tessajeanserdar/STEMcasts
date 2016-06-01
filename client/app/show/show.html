@@ -2,7 +2,7 @@
  <div ng-cloak="" ng-show="loaded" class="row">
    <div class="show-list col-md-12">
        <h5 class="logo-font stemcast-slogan show-main">{{results.showName}}</h5>
-       <img src="{{results.thumbnail}}">
+       <img class="Player-thumbnail" src="{{results.thumbnail}}">
        <div class="full-show-list mdl-list">
            <div class="full-show-list" ng-repeat="song in songs">
                <div class="full-show-list" music-player data-type="playTrack" data-song="{{ $index }}" all-songs="songs"
@@ -11,12 +11,13 @@
            </div>
        </div>
        <br>
-       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" play-all="songs" my-playlist="playlist">Start</button>
-       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" stop-music>Pause</button>
-       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" play-music>Continue</button>
-           <!-- init soundManager2 player -->
+       <div class="player-controlls">
+         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" play-all="songs" my-playlist="playlist">Start</button>
+         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" stop-music>Pause</button>
+         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" play-music>Continue</button>
+       </div>
        <sound-manager></sound-manager>
-       <p>
+       <p class="player-buttons">
            Currently Playing: {{ currentPlaying.title }} ({{ currentPostion }} / {{ currentDuration }})
        </p>
        <div class="seekBase" seek-track>
@@ -26,7 +27,7 @@
 
        <br/>
        <br/>
-       <span ng-if="currentPlaying.id == song.id">(current)</span>
+       <span class="current-song" ng-if="currentPlaying.id == song.id">(current)</span>
     </div>
   </div>
 
